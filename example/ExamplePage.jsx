@@ -45,7 +45,7 @@ class ExamplePage extends Component {
         <p>{this.props.intl.formatMessage(messages['example.message'])}</p>
         {this.renderAuthenticatedUser()}
         <p>EXAMPLE_VAR env var came through: <strong>{getConfig().EXAMPLE_VAR}</strong></p>
-        <p>Visit <Link to="/authenticated">authenticated page</Link>.</p>
+        <p>Visit the <Link to="/authenticated">authenticated page</Link>.</p>
         <p>Visit <Link to="/error_example">error page</Link>.</p>
       </div>
     );
