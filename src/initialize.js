@@ -89,7 +89,7 @@ import configureCache from './auth/LocalForageCache';
  */
 export const history = (typeof window !== 'undefined')
   ? createBrowserHistory({
-    basename: getConfig().PUBLIC_PATH,
+    basename: '/' // getConfig().PUBLIC_PATH,
   }) : createMemoryHistory();
 
 /**

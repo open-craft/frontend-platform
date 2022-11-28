@@ -42,9 +42,8 @@ export function unloadDynamicScript(url) {
   }
 }
 
-export function loadSharedModule(scope, module) {
-  return async () => {
-    // Initializes the share scope. This fills it with known provided modules from this build and all remotes
+export async function loadSharedModule(scope, module) {
+  // Initializes the share scope. This fills it with known provided modules from this build and all remotes
     // eslint-disable-next-line no-undef
     await __webpack_init_sharing__('default');
 
@@ -55,14 +54,16 @@ export function loadSharedModule(scope, module) {
     const factory = await window[scope].get(module);
     const Module = factory();
     return Module;
-  };
+
 }
 
-export async function loadPluginComponent(plugin) {
-  const { url, scope, module } = plugin;
-  if (plugin.type === COMPONENT_PLUGIN) {
-    await loadDynamicScript(url);
-    return loadSharedModule(scope, module);
+export function loadPluginComponent(plugin) {
+  return async () => {
+    const { url, scope, module } = plugin;
+    if (plugin.type === COMPONENT_PLUGIN) {
+      await loadDynamicScript(url);
+      return loadSharedModule(scope, module);
+    }
+    throw new Error(`loadPluginComponent: invalid plugin type ${plugin.type}, must be of type COMPONENT_PLUGIN.`);
   }
-  throw new Error(`loadPluginComponent: invalid plugin type ${plugin.type}, must be of type COMPONENT_PLUGIN.`);
 }

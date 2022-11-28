@@ -13,7 +13,7 @@ export function useDynamicPluginComponent(plugin) {
     unloadDynamicScript(plugin.url);
   }, []);
 
-  return lazy(loadPluginComponent(plugin));
+  return loadPluginComponent(plugin);
 }
 
 export function usePluginSlot(id) {
