@@ -70,7 +70,7 @@ export const useAppThemeCore = ({
   onLoad,
 }) => {
   useEffect(() => {
-    // If the config for either the core theme url, do nothing.
+    // If the config for the core theme url, do nothing.
     if (!coreThemeUrl) {
       return;
     }
@@ -83,7 +83,7 @@ export const useAppThemeCore = ({
         onLoad();
       };
       document.head.insertAdjacentElement(
-        'beforeend',
+        'afterbegin',
         coreThemeLink,
       );
     }
@@ -144,7 +144,7 @@ const useAppThemeVariants = ({
           setThemeVariantLoaded(themeVariant);
         };
         document.head.insertAdjacentElement(
-          'beforeend',
+          'afterbegin',
           themeVariantLink,
         );
       } else if (themeVariantLink.rel !== stylesheetRelForVariant) {
@@ -202,6 +202,7 @@ export const useAppTheme = ({
   useAppThemeVariants({
     themeVariantUrls,
     onLoadVariantLight: onLoadThemeVariantLight,
+    currentThemeVariant: appThemeState.themeVariant,
   });
 
   useEffect(() => {
