@@ -6,11 +6,11 @@ import OptionalReduxProvider from './OptionalReduxProvider';
 
 import ErrorBoundary from './ErrorBoundary';
 import AppContext from './AppContext';
-import { useAppEvent, useAppTheme, useTrackColorSchemeChoice } from './hooks';
 import {
-  APP_THEME_CORE,
-  APP_THEME_LIGHT,
-} from './constants';
+  useAppEvent,
+  useParagonTheme,
+  useTrackColorSchemeChoice,
+} from './hooks';
 import { getAuthenticatedUser, AUTHENTICATED_USER_CHANGED } from '../auth';
 import { getConfig } from '../config';
 import { CONFIG_CHANGED } from '../constants';
@@ -67,26 +67,19 @@ export default function AppProvider({ store, children, wrapWithRouter }) {
     setLocale(getLocale());
   });
 
-  const [appThemeState, appThemeDispatch] = useAppTheme({
-    themeUrls: {
-      [APP_THEME_CORE]: config.APP_THEME_CORE_URL,
-      variants: {
-        [APP_THEME_LIGHT]: config.APP_THEME_LIGHT_URL,
-      },
-    },
-  });
+  const [paragonThemeState, paragonThemeDispatch] = useParagonTheme(config);
 
   const appContextValue = useMemo(() => ({
     authenticatedUser,
     config,
     locale,
-    appTheme: {
-      state: appThemeState,
-      dispatch: appThemeDispatch,
+    paragonTheme: {
+      state: paragonThemeState,
+      dispatch: paragonThemeDispatch,
     },
-  }), [authenticatedUser, config, locale, appThemeState, appThemeDispatch]);
+  }), [authenticatedUser, config, locale, paragonThemeState, paragonThemeDispatch]);
 
-  if (!appThemeState?.isThemeLoaded) {
+  if (!paragonThemeState?.isThemeLoaded) {
     return null;
   }
 
