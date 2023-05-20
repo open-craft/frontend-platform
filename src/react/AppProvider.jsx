@@ -8,8 +8,8 @@ import ErrorBoundary from './ErrorBoundary';
 import AppContext from './AppContext';
 import {
   useAppEvent,
-  useTrackColorSchemeChoice,
   useParagonTheme,
+  useTrackColorSchemeChoice,
 } from './hooks';
 import { getAuthenticatedUser, AUTHENTICATED_USER_CHANGED } from '../auth';
 import { getConfig } from '../config';
