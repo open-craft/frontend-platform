@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import OptionalReduxProvider from './OptionalReduxProvider';
 
@@ -15,7 +15,6 @@ import { paragonThemeActions } from './reducers';
 import { getAuthenticatedUser, AUTHENTICATED_USER_CHANGED } from '../auth';
 import { getConfig } from '../config';
 import { CONFIG_CHANGED } from '../constants';
-import { history } from '../initialize';
 import {
   getLocale,
   getMessages,
@@ -50,7 +49,7 @@ import { SELECTED_THEME_VARIANT_KEY } from './constants';
  * @param {Object} [props.store] A redux store.
  * @memberof module:React
  */
-export default function AppProvider({ store, children }) {
+export default function AppProvider({ store, children, wrapWithRouter }) {
   const [config, setConfig] = useState(getConfig());
   const [authenticatedUser, setAuthenticatedUser] = useState(getAuthenticatedUser());
   const [locale, setLocale] = useState(getLocale());
@@ -96,9 +95,11 @@ export default function AppProvider({ store, children }) {
           value={appContextValue}
         >
           <OptionalReduxProvider store={store}>
-            <Router history={history}>
-              {children}
-            </Router>
+            {wrapWithRouter ? (
+              <Router>
+                {children}
+              </Router>
+            ) : children}
           </OptionalReduxProvider>
         </AppContext.Provider>
       </ErrorBoundary>
@@ -109,8 +110,10 @@ export default function AppProvider({ store, children }) {
 AppProvider.propTypes = {
   store: PropTypes.shape({}),
   children: PropTypes.node.isRequired,
+  wrapWithRouter: PropTypes.bool,
 };
 
 AppProvider.defaultProps = {
   store: null,
+  wrapWithRouter: true,
 };
