@@ -77,12 +77,12 @@ const useParagonThemeVariants = ({
         setIsBrandThemeVariantLoaded(true);
         return;
       }
-      const getParagonThemeVariantLink = () => document.head.querySelector(`link[data-paragon-theme-variant='${themeVariant}']`);
-      const existingThemeVariantLink = document.head.querySelector(`link[href='${value.urls.default}']`);
-      const existingThemeVariantBrandLink = document.head.querySelector(`link[href='${value.urls.brandOverride}']`);
+      const getParagonThemeVariantLink = () => document.head.querySelector(`link[data-paragon-theme-variant='${themeVariant}'][rel=stylesheet]`);
+      const existingThemeVariantLink = document.head.querySelector(`link[href='${value.urls.default}'][rel=stylesheet]`);
+      const existingThemeVariantBrandLink = document.head.querySelector(`link[href='${value.urls.brandOverride}'][rel=stylesheet]`);
 
       const getExistingThemeVariantLinks = (isBrandOverride) => {
-        const themeVariantLinkSelector = `link[data-${isBrandOverride ? 'brand' : 'paragon'}-theme-variant='${themeVariant}']`;
+        const themeVariantLinkSelector = `link[data-${isBrandOverride ? 'brand' : 'paragon'}-theme-variant='${themeVariant}'][rel=stylesheet]`;
         return document.head.querySelectorAll(themeVariantLinkSelector);
       };
 
