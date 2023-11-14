@@ -89,6 +89,8 @@ export default function AppProvider({ store, children }) {
     return null;
   }
 
+  console.log({locale});
+
   return (
     <IntlProvider locale={locale} messages={getMessages()}>
       <ErrorBoundary>
