@@ -34,11 +34,11 @@ const useParagonThemeCore = ({
       setIsBrandThemeCoreLoaded(true);
       return;
     }
-    const getParagonThemeCoreLink = () => document.head.querySelector('link[data-paragon-theme-core="true"');
-    const existingCoreThemeLink = document.head.querySelector(`link[href='${themeCore.urls.default}']`);
+    const getParagonThemeCoreLink = () => document.head.querySelector('link[data-paragon-theme-core="true"][rel=stylesheet]');
+    const existingCoreThemeLink = document.head.querySelector(`link[href='${themeCore.urls.default}'][rel=stylesheet]`);
     if (!existingCoreThemeLink) {
       const getExistingCoreThemeLinks = (isBrandOverride) => {
-        const coreThemeLinkSelector = `link[data-${isBrandOverride ? 'brand' : 'paragon'}-theme-core="true"]`;
+        const coreThemeLinkSelector = `link[data-${isBrandOverride ? 'brand' : 'paragon'}-theme-core="true"][rel=stylesheet]`;
         return document.head.querySelectorAll(coreThemeLinkSelector);
       };
       const createCoreThemeLink = (
@@ -131,3 +131,4 @@ const useParagonThemeCore = ({
 };
 
 export default useParagonThemeCore;
+
