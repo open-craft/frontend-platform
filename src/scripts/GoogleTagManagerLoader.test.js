@@ -3,14 +3,15 @@ import { GoogleTagManagerLoader } from './index';
 const gtmId = 'test-key';
 
 describe('GoogleTagManager', () => {
-  let gtmScriptId;
+  let gtmScriptSrc;
   let firstScriptTag;
 
   beforeEach(() => {
     window.googleTagManager = [];
-    document.head.innerHTML = '<title>Testing</title><meta charset="utf-8" /><script id="testing"></script>';
+    document.head.innerHTML = '<title>Title</title><meta charset="utf-8" /><script id="testing"></script>';
     document.body.innerHTML = '<script id="stub" />';
-    gtmScriptId = `<script src="https://www.googletagmanager.com/gtm.js?id=${gtmId}" />`;
+
+    gtmScriptSrc = `https://www.googletagmanager.com/gtm.js?id=${gtmId}`;
   });
 
   function loadGoogleTagManager(scriptData) {
@@ -37,13 +38,13 @@ describe('GoogleTagManager', () => {
     });
 
     it('should initialize google tag manager', () => {
-      expect(document.head.children[0])
-        .toContainHTML('<title>Testing</title>');
+      expect(document.head.children[0].innerHTML)
+        .toBe('Title');
       // The first inserted script tag should be the first script tag
       // eslint-disable-next-line prefer-destructuring
       firstScriptTag = document.head.getElementsByTagName('script')[0];
-      expect(firstScriptTag)
-        .toContainHTML(gtmScriptId);
+      expect(firstScriptTag.src)
+        .toBe(gtmScriptSrc);
     });
 
     it('should not initialize google tag manager twice', () => {
@@ -108,9 +109,9 @@ describe('GoogleTagManager', () => {
 
     it('should not initialize google analytics', () => {
       Array.from(document.head.getElementsByTagName('script')).forEach(scriptNode => {
-        expect(scriptNode)
+        expect(scriptNode.src)
           .not
-          .toContainHTML(gtmScriptId);
+          .toBe(gtmScriptSrc);
       });
     });
   });
