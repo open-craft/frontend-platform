@@ -1,7 +1,7 @@
 import { createConfig } from '@edx/frontend-build';
 
 const config = createConfig('jest', {
-  setupFiles: [
+  setupFilesAfterEnv: [
     '<rootDir>/src/setupTest.js',
   ],
   testTimeout: 20000,

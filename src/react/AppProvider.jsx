@@ -76,7 +76,9 @@ export default function AppProvider({ children, store = null, wrapWithRouter = t
           <OptionalReduxProvider store={store}>
             {wrapWithRouter ? (
               <Router basename={basename}>
-                {children}
+                <div data-testid="browser-router">
+                  {children}
+                </div>
               </Router>
             ) : children}
           </OptionalReduxProvider>

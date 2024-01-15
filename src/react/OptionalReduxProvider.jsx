@@ -18,7 +18,9 @@ export default function OptionalReduxProvider({ store = null, children }) {
 
   return (
     <Provider store={store}>
-      {children}
+      <div data-testid="redux-provider">
+        {children}
+      </div>
     </Provider>
   );
 }
