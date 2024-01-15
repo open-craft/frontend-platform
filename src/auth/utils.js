@@ -39,10 +39,10 @@ const logFrontendAuthError = (loggingService, error) => {
 /**
  * Handle an Axios error
  * @param {import("axios").AxiosError} axiosErrorObject The error
- * @returns {import("./interface").DetailedAxiosError}
+ * @returns {import("./interface.js").DetailedAxiosError}
  */
 const processAxiosError = (axiosErrorObject) => {
-  /** @type {import("./interface").DetailedAxiosError} */
+  /** @type {import("./interface.js").DetailedAxiosError} */
   const error = Object.create(axiosErrorObject);
   const { request, response, config } = error;
 

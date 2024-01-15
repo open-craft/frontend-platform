@@ -1,9 +1,9 @@
 // @ts-check
-/* eslint-disable import/extensions */
-import * as COUNTRIES from 'i18n-iso-countries';
-import { langs as countryLangs } from 'i18n-iso-countries';
+import COUNTRIES from 'i18n-iso-countries';
 
 import { getPrimaryLanguageSubtag } from './lib.js';
+
+const countryLangs = COUNTRIES.langs;
 
 /*
  * COUNTRY LISTS

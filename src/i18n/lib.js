@@ -35,7 +35,7 @@ import '@formatjs/intl-relativetimeformat/locale-data/ru.js';
 import '@formatjs/intl-relativetimeformat/locale-data/th.js';
 import '@formatjs/intl-relativetimeformat/locale-data/uk.js';
 
-/** @typedef {import('../logging/interface').LoggingService} LoggingService */
+/** @typedef {import('../logging/interface.js').LoggingService} LoggingService */
 /** @typedef {{[id: string]: string}} Messages */
 /** @typedef {{[languageCode: string]: Messages}} MessagesByLocale */
 
@@ -246,7 +246,7 @@ export function mergeMessages(newMessages) {
  *
  * @param {Object} options
  * @param {LoggingService} options.loggingService
- * @param {import('../config').ConfigDocument} options.config
+ * @param {import('../config.js').ConfigDocument} options.config
  * @param {MessagesByLocale|MessagesByLocale[]} options.messages
  */
 export function configure(options) {

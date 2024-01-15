@@ -1,9 +1,9 @@
 // @ts-check
-/* eslint-disable import/extensions */
-import * as LANGUAGES from '@cospired/i18n-iso-languages';
-import { langs as languageLangs } from '@cospired/i18n-iso-languages';
+import LANGUAGES from '@cospired/i18n-iso-languages';
 
 import { getPrimaryLanguageSubtag } from './lib.js';
+
+const languageLangs = LANGUAGES.langs;
 
 /*
  * LANGUAGE LISTS
