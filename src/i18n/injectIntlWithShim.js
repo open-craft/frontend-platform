@@ -31,7 +31,8 @@ const injectIntlWithShim = (WrappedComponent) => {
     }
 
     render() {
-      return <WrappedComponent {...this.props} intl={this.shimmedIntl} />;
+      // JSX equivalent of the following: <WrappedComponent {...this.props} intl={this.shimmedIntl} />
+      return React.createElement(WrappedComponent, { ...this.props, intl: this.shimmedIntl }, null);
     }
   }
 

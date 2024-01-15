@@ -3,7 +3,7 @@
 import * as LANGUAGES from '@cospired/i18n-iso-languages';
 import { langs as languageLangs } from '@cospired/i18n-iso-languages';
 
-import { getPrimaryLanguageSubtag } from './lib';
+import { getPrimaryLanguageSubtag } from './lib.js';
 
 /*
  * LANGUAGE LISTS

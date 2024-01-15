@@ -53,7 +53,7 @@ export {
 
 export {
   default as injectIntl,
-} from './injectIntlWithShim.jsx';
+} from './injectIntlWithShim.js';
 
 export {
   getCountryList,

@@ -3,7 +3,7 @@
 import * as COUNTRIES from 'i18n-iso-countries';
 import { langs as countryLangs } from 'i18n-iso-countries';
 
-import { getPrimaryLanguageSubtag } from './lib';
+import { getPrimaryLanguageSubtag } from './lib.js';
 
 /*
  * COUNTRY LISTS
