@@ -10,6 +10,7 @@ config.settings = {
   ...config.settings,
   jsdoc: { mode: 'typescript', preferredTypes: { object: 'Object' } },
 };
+config.globals = { globalThis: 'readonly' };
 
 config.rules = {
   'import/no-extraneous-dependencies': ['error', {

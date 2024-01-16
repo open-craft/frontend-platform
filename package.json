@@ -3,29 +3,36 @@
   "version": "1.0.0-semantically-released",
   "description": "Foundational application framework for Open edX micro-frontend applications.",
   "type": "module",
+  "exports-notes": "Whether you use require() or import() you'll get an ES6 module with import syntax. This is for backwards compatibility with how this package was used with webpack/babel. This approach works fine with bundlers and any modern ES6 modules, but if you try to use code from this package with regular NodeJS require(), you'll get errors because we're giving ES6 modules and calling them CommonJS.",
   "exports": {
     ".": {
       "import": "./src/index.js",
+      "require": "./src/index.js",
       "types": "./types/index.d.ts"
     },
     "./analytics": {
       "import": "./src/analytics/index.js",
+      "require": "./src/analytics/index.js",
       "types": "./types/analytics/index.d.ts"
     },
     "./auth": {
       "import": "./src/auth/index.js",
+      "require": "./src/auth/index.js",
       "types": "./types/auth/index.d.ts"
     },
     "./i18n": {
       "import": "./src/i18n/index.js",
+      "require": "./src/i18n/index.js",
       "types": "./types/i18n/index.d.ts"
     },
     "./logging": {
       "import": "./src/logging/index.js",
+      "require": "./src/logging/index.js",
       "types": "./types/logging/index.d.ts"
     },
     "./react": {
       "import": "./src/react/index.js",
+      "require": "./src/react/index.js",
       "types": "./types/react/index.d.ts"
     }
   },
