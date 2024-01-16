@@ -10,6 +10,8 @@ import { sendPageEvent } from '../analytics/index.js';
  *
  * @see {@link module:frontend-platform/analytics~sendPageEvent}
  * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @returns {React.ReactNode}
  */
 export default function PageWrap({ children }) {
   const location = useLocation();

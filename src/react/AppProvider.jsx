@@ -5,8 +5,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import OptionalReduxProvider from './OptionalReduxProvider.jsx';
 
-import ErrorBoundary from './ErrorBoundary.jsx';
-import AppContext from './AppContext.jsx';
+import ErrorBoundary from './ErrorBoundary.js';
+import AppContext from './AppContext.js';
 import { useAppEvent, useTrackColorSchemeChoice } from './hooks.js';
 import { getAuthenticatedUser, AUTHENTICATED_USER_CHANGED } from '../auth/index.js';
 import { getConfig } from '../config.js';

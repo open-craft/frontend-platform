@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import ErrorBoundary from './ErrorBoundary.jsx';
+import ErrorBoundary from './ErrorBoundary.js';
 import { initializeMockApp } from '../index.js';
 
 describe('ErrorBoundary', () => {

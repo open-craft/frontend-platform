@@ -3,8 +3,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { Route, Routes, MemoryRouter } from 'react-router-dom';
 import { getAuthenticatedUser, getLoginRedirectUrl } from '../auth/index.js';
-import AuthenticatedPageRoute from './AuthenticatedPageRoute.jsx';
-import AppContext from './AppContext.jsx';
+import AuthenticatedPageRoute from './AuthenticatedPageRoute.js';
+import AppContext from './AppContext.js';
 import { getConfig } from '../config.js';
 import { sendPageEvent } from '../analytics/index.js';
 

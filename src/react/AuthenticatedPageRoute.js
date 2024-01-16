@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import AppContext from './AppContext.jsx';
-import PageWrap from './PageWrap.jsx';
+import AppContext from './AppContext.js';
+import PageWrap from './PageWrap.js';
 import { getLoginRedirectUrl } from '../auth/index.js';
 
 /**
@@ -20,6 +20,8 @@ import { getLoginRedirectUrl } from '../auth/index.js';
  * @param {Object} props
  * @param {string} props.redirectUrl The URL anonymous users should be redirected to, rather than
  * viewing the route's contents.
+ * @param {React.ReactNode} props.children
+ * @returns {React.ReactNode}
  */
 export default function AuthenticatedPageRoute({ redirectUrl, children }) {
   const { authenticatedUser } = useContext(AppContext);
@@ -30,11 +32,7 @@ export default function AuthenticatedPageRoute({ redirectUrl, children }) {
     return null;
   }
 
-  return (
-    <PageWrap>
-      {children}
-    </PageWrap>
-  );
+  return React.createElement(PageWrap, {}, children);
 }
 
 AuthenticatedPageRoute.propTypes = {
