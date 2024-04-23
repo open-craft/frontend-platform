@@ -11,20 +11,33 @@ import { getPrimaryLanguageSubtag } from './lib';
  * TODO: When we start dynamically loading translations only for the current locale, change this.
  */
 
-COUNTRIES.registerLocale(require('i18n-iso-countries/langs/ar.json'));
-COUNTRIES.registerLocale(require('i18n-iso-countries/langs/en.json'));
-COUNTRIES.registerLocale(require('i18n-iso-countries/langs/es.json'));
-COUNTRIES.registerLocale(require('i18n-iso-countries/langs/fr.json'));
-COUNTRIES.registerLocale(require('i18n-iso-countries/langs/zh.json'));
-COUNTRIES.registerLocale(require('i18n-iso-countries/langs/ca.json'));
-COUNTRIES.registerLocale(require('i18n-iso-countries/langs/he.json'));
-COUNTRIES.registerLocale(require('i18n-iso-countries/langs/id.json'));
-COUNTRIES.registerLocale(require('i18n-iso-countries/langs/ko.json'));
-COUNTRIES.registerLocale(require('i18n-iso-countries/langs/pl.json'));
-COUNTRIES.registerLocale(require('i18n-iso-countries/langs/pt.json'));
-COUNTRIES.registerLocale(require('i18n-iso-countries/langs/ru.json'));
+import arCountries from 'i18n-iso-countries/langs/ar.json';
+COUNTRIES.registerLocale(arCountries);
+import enCountries from 'i18n-iso-countries/langs/en.json';
+COUNTRIES.registerLocale(enCountries);
+import esCountries from 'i18n-iso-countries/langs/es.json';
+COUNTRIES.registerLocale(esCountries);
+import frCountries from 'i18n-iso-countries/langs/fr.json';
+COUNTRIES.registerLocale(frCountries);
+import zhCountries from 'i18n-iso-countries/langs/zh.json';
+COUNTRIES.registerLocale(zhCountries);
+import caCountries from 'i18n-iso-countries/langs/ca.json';
+COUNTRIES.registerLocale(caCountries);
+import heCountries from 'i18n-iso-countries/langs/he.json';
+COUNTRIES.registerLocale(heCountries);
+import idCountries from 'i18n-iso-countries/langs/id.json';
+COUNTRIES.registerLocale(idCountries);
+import koCountries from 'i18n-iso-countries/langs/ko.json';
+COUNTRIES.registerLocale(koCountries);
+import plCountries from 'i18n-iso-countries/langs/pl.json';
+COUNTRIES.registerLocale(plCountries);
+import ptCountries from 'i18n-iso-countries/langs/pt.json';
+COUNTRIES.registerLocale(ptCountries);
+import ruCountries from 'i18n-iso-countries/langs/ru.json';
+COUNTRIES.registerLocale(ruCountries);
 // COUNTRIES.registerLocale(require('i18n-iso-countries/langs/th.json')); // Doesn't exist in lib.
-COUNTRIES.registerLocale(require('i18n-iso-countries/langs/uk.json'));
+import ukCountries from 'i18n-iso-countries/langs/uk.json';
+COUNTRIES.registerLocale(ukCountries);
 
 /**
  * Provides a lookup table of country IDs to country names for the current locale.
